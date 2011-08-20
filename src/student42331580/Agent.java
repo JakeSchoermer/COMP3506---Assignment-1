@@ -50,7 +50,7 @@ public class Agent implements IAgent {
                     String transactionType = args[0];
                     String stockName = args[1];
                     int quantity = Integer.parseInt(args[2]);
-                    double price = Double.parseDouble(args[3].substring(0,args[3].length()));
+                    double price = Double.parseDouble(args[3].substring(1,args[3].length()));
 
                     Stock stock = new Stock(stockName, quantity, price);
 
