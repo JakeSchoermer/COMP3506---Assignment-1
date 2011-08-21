@@ -2,13 +2,7 @@ package student42331580;
 
 import java.io.*;
 import java.util.StringTokenizer;
-
-import com.sun.corba.se.spi.orbutil.fsm.Input;
-import com.sun.org.apache.xpath.internal.operations.Variable;
-import com.sun.org.apache.xpath.internal.operations.VariableSafeAbsRef;
 import datastructures.*;
-
-import javax.sound.sampled.Line;
 
 public class Agent implements IAgent {
 
@@ -32,6 +26,8 @@ public class Agent implements IAgent {
 	 */
 	public int parseInput(String fileName) {
 
+        int ret = 0;
+
         try {
             FileInputStream fstream = new FileInputStream(fileName);
             DataInputStream dstream = new DataInputStream(fstream);
@@ -40,26 +36,47 @@ public class Agent implements IAgent {
 
             //Parse each line in the file add add the parameters to the appropriate Queue
             String line;
-            int LineNumber = 0;
+            int LineNumber = 1;
+            int nodeIdx = 0;
+            Node node = new Node<Stock>(null, null);
+
             while ((line = file.readLine())  != null) {
 
                 if (line != "") { //Skip Line if Empty
-                    String args[] = line.split(" ");
+                    StringTokenizer st = new StringTokenizer(line);
 
-                    //Parse the Input for Syntax Errors
-                    String transactionType = args[0];
-                    String stockName = args[1];
-                    int quantity = Integer.parseInt(args[2]);
-                    double price = Double.parseDouble(args[3].substring(1,args[3].length()));
+                    if (st.countTokens() != 4) {
+                        System.err.println("Command on line "+LineNumber+" is not well formed.");
+                        ret = -1;
+                    }
+
+                    String transactionType = st.nextToken();
+                    String stockName = st.nextToken();
+                    int quantity = Integer.parseInt(st.nextToken());
+                    String tempPrice = st.nextToken();
+                    double price = Double.parseDouble(tempPrice.substring(1, tempPrice.length()));
 
                     Stock stock = new Stock(stockName, quantity, price);
+                    node.setElement(stock);
 
-                    LineNumber++;
+                    System.out.println(node.getElement().getClass());
+
+                    if (node.getElement().getClass().getName() == "buy") {
+                        this.buyOrders.addHead(node);
+                    }
+                    else if (stock.getName().getClass().getName() == "sell") {
+                        this.sellOrders.addHead(node);
+
+                    }
                 }
+
+                LineNumber++;
+
+
+
+
+
             }
-
-            System.out.println(dstream);
-
         }
         catch (FileNotFoundException e){//Catch exception if any
             System.err.println("File Not Found: " + e.getMessage());
@@ -69,7 +86,7 @@ public class Agent implements IAgent {
         }
 
 
-		return 0; // To prevent an error in the project
+		return ret; // To prevent an error in the project
 	}
 
 	/*
