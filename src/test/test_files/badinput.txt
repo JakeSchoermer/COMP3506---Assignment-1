@@ -1,0 +1,4 @@
+buy ABCD 10 $4.60
+buy HIJK 100 $10
+sell WXYZ 24 $9.80
+bad WXYZ 24 $9.80

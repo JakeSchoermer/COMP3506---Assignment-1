@@ -2,7 +2,7 @@ package student42331580;
 
 public interface IAgent {
 
-	public int parseInput(String str);
+	public int parseInput(String str) throws InvalidInputException;
 
 	public void exchange();
 

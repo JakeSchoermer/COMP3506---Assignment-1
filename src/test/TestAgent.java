@@ -11,14 +11,14 @@ public class TestAgent {
 
     @Test
     public void testBasicFileHandling() {
-        /*try {
+        try {
             Agent a = new Agent();
             String filepath = "./src/test/test_files/test1.txt";
             a.parseInput(filepath); // May need to check this path
 
         } catch (Exception e) {
-			//fail("Could Not Open test1.txt");
-		}*/
+			fail("Could Not Open test1.txt");
+		}
     }
 
     @Test
@@ -34,6 +34,20 @@ public class TestAgent {
 			fail("Exception occurred.");
 		}
 	}
+
+    @Test
+    public void TestParseLineBadInput() {
+        try {
+			Agent a = new Agent();
+			a.parseInput("./src/test/test_files/badinput.txt"); // May need to check this path
+			assertEquals("Should be 2 stocks in buy", a.sizeBuy(), 2);
+			assertEquals("Should be 1 stock in sell", a.sizeSell(), 1);
+			assertEquals("Should be 0 stocks in transaction",
+					a.sizeTransaction(), 0);
+		} catch (Exception e) {
+			fail("Exception occurred.");
+		}
+    }
 
 	@Test
 	public void testExchange() {

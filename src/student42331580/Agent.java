@@ -3,6 +3,7 @@ package student42331580;
 import java.io.*;
 import java.util.StringTokenizer;
 import datastructures.*;
+import student42331580.*;
 
 public class Agent implements IAgent {
 
@@ -24,7 +25,7 @@ public class Agent implements IAgent {
 	/*
 	 * Takes a file name as input and parses the commands in the file
 	 */
-	public int parseInput(String fileName) {
+	public int parseInput(String fileName) throws InvalidInputException {
 
         int ret = 0;
 
@@ -45,8 +46,8 @@ public class Agent implements IAgent {
                     StringTokenizer st = new StringTokenizer(line);
 
                     if (st.countTokens() != 4) {
-                        System.err.println("Command on line "+LineNumber+" is not well formed.");
                         ret = -1;
+                        throw new InvalidInputException(LineNumber);
                     }
 
                     String transactionType = st.nextToken();
@@ -62,16 +63,13 @@ public class Agent implements IAgent {
                     }
                     else if (transactionType.equals("sell")) {
                         this.sellOrders.enqueue(stock);
-
+                    }
+                    else {
+                        ret = -1;
+                        throw new InvalidInputException(LineNumber);
                     }
                 }
-
                 LineNumber++;
-
-
-
-
-
             }
         }
         catch (FileNotFoundException e){//Catch exception if any
