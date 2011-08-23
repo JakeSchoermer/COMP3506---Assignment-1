@@ -6,9 +6,9 @@ import datastructures.*;
 
 public class Agent implements IAgent {
 
-	private ILinkedList<Stock> buyOrders;
-	private ILinkedList<Stock> sellOrders;
-	private ILinkedList<Stock> transactions;
+	private IQueue<Stock> buyOrders;
+	private IQueue<Stock> sellOrders;
+	private IQueue<Stock> transactions;
 
 	/*
 	 * Default constructor
@@ -16,9 +16,9 @@ public class Agent implements IAgent {
 	public Agent() {
 		// You may choose which data structures you would like to use
 
-		this.buyOrders = new LinkedList<Stock>();
-		this.sellOrders = new LinkedList<Stock>();
-		this.transactions = new LinkedList<Stock>();
+		this.buyOrders = new ArrayQueue<Stock>();
+		this.sellOrders = new ArrayQueue<Stock>();
+		this.transactions = new ArrayQueue<Stock>();
 	}
 
 	/*
@@ -38,7 +38,6 @@ public class Agent implements IAgent {
             String line;
             int LineNumber = 1;
             int nodeIdx = 0;
-            Node node = new Node<Stock>(null, null);
 
             while ((line = file.readLine())  != null) {
 
@@ -57,15 +56,12 @@ public class Agent implements IAgent {
                     double price = Double.parseDouble(tempPrice.substring(1, tempPrice.length()));
 
                     Stock stock = new Stock(stockName, quantity, price);
-                    node.setElement(stock);
 
-                    System.out.println(node.getElement().getClass());
-
-                    if (node.getElement().getClass().getName() == "buy") {
-                        this.buyOrders.addHead(node);
+                    if (transactionType.equals("buy")) {
+                        this.buyOrders.enqueue(stock);
                     }
-                    else if (stock.getName().getClass().getName() == "sell") {
-                        this.sellOrders.addHead(node);
+                    else if (transactionType.equals("sell")) {
+                        this.sellOrders.enqueue(stock);
 
                     }
                 }

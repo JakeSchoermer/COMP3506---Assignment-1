@@ -53,7 +53,7 @@ public class TestAgent {
 
 			// A buy and sell exactly match
 			Agent b = new Agent();
-			a.parseInput("test_files/test3.txt"); // May need to check this path
+			a.parseInput("./src/test/test_files/test3.txt"); // May need to check this path
 			assertEquals("Should be 1 stock in buy", 1, b.sizeBuy());
 			assertEquals("Should be 1 stock in sell", 1, b.sizeSell());
 			assertEquals("Should be 0 stock in transaction", 0,
