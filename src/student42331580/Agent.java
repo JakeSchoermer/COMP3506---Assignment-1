@@ -8,7 +8,7 @@ import student42331580.*;
 public class Agent implements IAgent {
 
 	private ArrayQueue<Stock> buyOrders;
-	private ArrayQueue<Stock> sellOrders;
+	private LinkedList<Stock> sellOrders;
 	private ArrayQueue<Stock> transactions;
 
 	/*
@@ -18,7 +18,7 @@ public class Agent implements IAgent {
 		// You may choose which data structures you would like to use
 
 		this.buyOrders = new ArrayQueue<Stock>();
-		this.sellOrders = new ArrayQueue<Stock>();
+		this.sellOrders = new LinkedList<Stock>();
 		this.transactions = new ArrayQueue<Stock>();
 	}
 
@@ -28,6 +28,7 @@ public class Agent implements IAgent {
 	public int parseInput(String fileName) throws InvalidInputException {
 
         int ret = 0;
+        Node node = new Node<Stock>(null,null);
 
         try {
             FileInputStream fstream = new FileInputStream(fileName);
@@ -62,7 +63,8 @@ public class Agent implements IAgent {
                         this.buyOrders.enqueue(stock);
                     }
                     else if (transactionType.equals("sell")) {
-                        this.sellOrders.enqueue(stock);
+                        node.setElement(stock);
+                        this.sellOrders.addHead(node);
                     }
                     else {
                         ret = -1;
@@ -89,9 +91,38 @@ public class Agent implements IAgent {
 	public void exchange() {
 		// Implement this method
 
-        for (int i=0; i<buyOrders.size(); i++) {
-            Stock stock = buyOrders.dequeue();
+        ArrayQueue localbuys = new ArrayQueue<Stock>();
+        localbuys = this.buyOrders;
 
+        LinkedList localsells = new LinkedList<Stock>();
+        localsells = this.sellOrders;
+
+        Node temp;
+
+        for (int i=0; i<localbuys.size(); i++) {
+            Stock buyitem = (Stock)localbuys.dequeue();
+
+            for (int j=0; j<localsells.size();j++) {
+                Stock sellitem = (Stock)localsells.getHead().getElement();
+                if (sellitem.getName().equals(buyitem.getName()) &&
+                        sellitem.getPrice() <= buyitem.getPrice()) {
+                    //Create Transaction
+                    Stock transitem = new Stock(sellitem.getName(),sellitem.getQuantity()-buyitem.getQuantity(),
+                            sellitem.getPrice());
+                    this.transactions.enqueue(transitem);
+
+                    //Reassign head of sells to tail
+                    temp = localsells.getHead();
+                    localsells.removeHead();
+                    localbuys.enqueue(temp);
+
+
+                    //Copy local buy/sell items to global
+                    this.buyOrders = localbuys;
+                    this.sellOrders = localsells;
+                }
+
+            }
         }
 
 	}
@@ -105,7 +136,7 @@ public class Agent implements IAgent {
         ArrayQueue localbuys = new ArrayQueue<Stock>();
         localbuys = this.buyOrders;
 
-        ArrayQueue localsells = new ArrayQueue<Stock>();
+        LinkedList localsells = new LinkedList<Stock>();
         localsells = this.sellOrders;
 
         for (int i=0;i<localbuys.size();i++) {
@@ -113,7 +144,8 @@ public class Agent implements IAgent {
         }
 
         for (int i=0;i<localsells.size();i++) {
-            System.out.println("sell "+localsells.dequeue());
+            System.out.println("sell "+localsells.getHead());
+            localsells.removeHead();
         }
 		return ""; // To prevent an error in the project
 	}
