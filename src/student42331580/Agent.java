@@ -7,9 +7,9 @@ import student42331580.*;
 
 public class Agent implements IAgent {
 
-	private IQueue<Stock> buyOrders;
-	private IQueue<Stock> sellOrders;
-	private IQueue<Stock> transactions;
+	private ArrayQueue<Stock> buyOrders;
+	private ArrayQueue<Stock> sellOrders;
+	private ArrayQueue<Stock> transactions;
 
 	/*
 	 * Default constructor
@@ -88,6 +88,12 @@ public class Agent implements IAgent {
 	 */
 	public void exchange() {
 		// Implement this method
+
+        for (int i=0; i<buyOrders.size(); i++) {
+            Stock stock = buyOrders.dequeue();
+
+        }
+
 	}
 
 	/*
@@ -95,7 +101,20 @@ public class Agent implements IAgent {
 	 * detail.
 	 */
 	public String printQueues() {
-		// Implement this method
+		//Copy the buyOrders and sellOrders
+        ArrayQueue localbuys = new ArrayQueue<Stock>();
+        localbuys = this.buyOrders;
+
+        ArrayQueue localsells = new ArrayQueue<Stock>();
+        localsells = this.sellOrders;
+
+        for (int i=0;i<localbuys.size();i++) {
+            System.out.println("buy "+localbuys.dequeue());
+        }
+
+        for (int i=0;i<localsells.size();i++) {
+            System.out.println("sell "+localsells.dequeue());
+        }
 		return ""; // To prevent an error in the project
 	}
 
@@ -105,6 +124,8 @@ public class Agent implements IAgent {
 	 */
 	public String printTransactions() {
 		// Implement this method
+
+
 		return ""; // To prevent an error in the project
 
 	}
