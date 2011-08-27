@@ -1,9 +1,11 @@
 package student42331580;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.StringTokenizer;
 import datastructures.*;
 import student42331580.*;
+import sun.net.idn.StringPrep;
 
 public class Agent implements IAgent {
 
@@ -39,7 +41,6 @@ public class Agent implements IAgent {
             //Parse each line in the file add add the parameters to the appropriate Queue
             String line;
             int LineNumber = 1;
-            int nodeIdx = 0;
 
             while ((line = file.readLine())  != null) {
 
@@ -98,14 +99,17 @@ public class Agent implements IAgent {
         localsells = this.sellOrders;
 
         Node temp;
+        Node node = new Node<Stock>(null,null);
+
+        //End testing
 
         for (int i=0; i<localbuys.size(); i++) {
             Stock buyitem = (Stock)localbuys.dequeue();
 
-            for (int j=0; j<localsells.size();j++) {
+
+            for (int j=1; j<localsells.size();j++) {
                 Stock sellitem = (Stock)localsells.getHead().getElement();
-                if (sellitem.getName().equals(buyitem.getName()) &&
-                        sellitem.getPrice() <= buyitem.getPrice()) {
+                if (sellitem.getName().equals(buyitem.getName())) {
                     //Create Transaction
                     Stock transitem = new Stock(sellitem.getName(),sellitem.getQuantity()-buyitem.getQuantity(),
                             sellitem.getPrice());
@@ -114,16 +118,15 @@ public class Agent implements IAgent {
                     //Reassign head of sells to tail
                     temp = localsells.getHead();
                     localsells.removeHead();
-                    localbuys.enqueue(temp);
-
-
-                    //Copy local buy/sell items to global
-                    this.buyOrders = localbuys;
-                    this.sellOrders = localsells;
+                    node.setElement(temp);
+                    localsells.addTail(node);
                 }
-
             }
+               localbuys.enqueue(buyitem);
         }
+        //Copy local buy/sell items to global
+            this.buyOrders = localbuys;
+            this.sellOrders = localsells;
 
 	}
 
@@ -139,15 +142,59 @@ public class Agent implements IAgent {
         LinkedList localsells = new LinkedList<Stock>();
         localsells = this.sellOrders;
 
-        for (int i=0;i<localbuys.size();i++) {
-            System.out.println("buy "+localbuys.dequeue());
+        String output = "";
+
+        String product;
+        int quantity;
+        String price;
+
+        Stock item;
+        Node node;
+
+        int b = localbuys.size();
+
+        for (int i=0;i<b;i++) {
+            item = (Stock)localbuys.dequeue();
+
+            product = item.getName();
+            quantity = item.getQuantity();
+            price = Double.toString(item.getPrice());
+
+            if (price.split("\\.", 2)[1].equals("0")) {
+                price = price.split("\\.",2)[0] + ".00";
+            }
+
+            output+="buy "+product+" "+quantity+" $"+price;
+
+            if (i < b) {
+                output+= "\n";
+            }
         }
 
-        for (int i=0;i<localsells.size();i++) {
-            System.out.println("sell "+localsells.getHead());
+        int s = localsells.size();
+
+        for (int i=0;i<s;i++) {
+
+            node = localsells.getHead();
+            item = (Stock)node.getElement();
             localsells.removeHead();
+
+            product = item.getName();
+            quantity = item.getQuantity();
+            price = Double.toString(item.getPrice());
+
+            if (price.split("\\.", 2)[1].equals("0")) {
+                price = price.split("\\.",2)[0] + ".00";
+            }
+
+            output+="sell "+product+" "+quantity+" $"+price;
+
+
+            if (i < localsells.size()) {
+                output+= "\n";
+            }
         }
-		return ""; // To prevent an error in the project
+		return output; // To prevent an error in the project
 	}
 
 	/*
@@ -156,6 +203,7 @@ public class Agent implements IAgent {
 	 */
 	public String printTransactions() {
 		// Implement this method
+
 
 
 		return ""; // To prevent an error in the project

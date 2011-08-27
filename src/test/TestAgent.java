@@ -7,6 +7,8 @@ import student42331580.*;
 
 import java.io.IOException;
 
+//assertEquals("Mssg", expected, actual)
+
 public class TestAgent {
 
     @Test
@@ -54,7 +56,7 @@ public class TestAgent {
 		try {
 			// Can't exchange
 			Agent a = new Agent();
-			a.parseInput("./test_files/test2.txt"); // May need to check this path
+			a.parseInput("./src/test/test_files/test2.txt"); // May need to check this path
 			assertEquals("Should be 2 stocks in buy", 2, a.sizeBuy());
 			assertEquals("Should be 1 stock in sell", 1, a.sizeSell());
 			assertEquals("Should be 0 stocks in transaction", 0,
@@ -65,9 +67,10 @@ public class TestAgent {
 			assertEquals("Should be 0 stocks in transaction", 0,
 					a.sizeTransaction());
 
+
 			// A buy and sell exactly match
 			Agent b = new Agent();
-			a.parseInput("./test_files/test3.txt"); // May need to check this path
+			a.parseInput("./src/test/test_files/test3.txt"); // May need to check this path
 			assertEquals("Should be 1 stock in buy", 1, b.sizeBuy());
 			assertEquals("Should be 1 stock in sell", 1, b.sizeSell());
 			assertEquals("Should be 0 stock in transaction", 0,
@@ -88,7 +91,7 @@ public class TestAgent {
 		try {
 			// Can't exchange
 			Agent a = new Agent();
-			a.parseInput("./test_files/test4.txt"); // May need to check this path
+			a.parseInput("./src/test/test_files/test4.txt"); // May need to check this path
 			a.exchange();
 			assertEquals("Should be 1 stock in buy", 1, a.sizeBuy());
 			assertEquals("Should be 0 stock in sell", 0, a.sizeSell());
@@ -105,7 +108,7 @@ public class TestAgent {
 	public void testPrintQueues() {
 		try {
 			Agent a = new Agent();
-			a.parseInput("./test_files/test4.txt"); // May need to check this path
+			a.parseInput("./src/test/test_files/test4.txt"); // May need to check this path
 			assertEquals("Print queues", "buy HIJK 100 $10.00\nsell HIJK 50 $5.00", a.printQueues());
 
 		} catch (Exception e) {
