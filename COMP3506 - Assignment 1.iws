@@ -15,9 +15,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3975383a-ced4-4bbf-bc54-a728c59eb6f0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/student42331580/InvalidInputException.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/COMP3506 - Assignment 1.iws" afterPath="$PROJECT_DIR$/COMP3506 - Assignment 1.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student42331580/Agent.java" afterPath="$PROJECT_DIR$/src/student42331580/Agent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/TestAgent.java" afterPath="$PROJECT_DIR$/src/test/TestAgent.java" />
     </list>
     <ignored path="COMP3506 - Assignment 1.iws" />
     <ignored path=".idea/workspace.xml" />
