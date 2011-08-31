@@ -1,5 +1,6 @@
 package student42331580;
 
+import java.awt.*;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.StringTokenizer;
@@ -82,7 +83,6 @@ public class Agent implements IAgent {
             System.err.println("IO Error: " + e.getMessage());
         }
 
-
 		return ret; // To prevent an error in the project
 	}
 
@@ -90,45 +90,46 @@ public class Agent implements IAgent {
 	 * Tries to match buy and sell orders. See assignment spec for more detail.
 	 */
 	public void exchange() {
-		// Implement this method
 
-        ArrayQueue localbuys = new ArrayQueue<Stock>();
-        localbuys = this.buyOrders;
+        Stock purchase = new Stock();
+        Stock sale = new Stock();
 
-        LinkedList localsells = new LinkedList<Stock>();
-        localsells = this.sellOrders;
+        Node node = new Node(null, null);
 
-        Node temp;
-        Node node = new Node<Stock>(null,null);
+        System.out.println(this.buyOrders.size());
+        System.out.println(this.sellOrders.size());
+        System.out.println("Test");
 
-        //End testing
+        for (int i=0; i<this.buyOrders.size(); i++) {
 
-        for (int i=0; i<localbuys.size(); i++) {
-            Stock buyitem = (Stock)localbuys.dequeue();
+            System.out.println("i: "+i);
 
+            purchase = this.buyOrders.dequeue();
 
-            for (int j=1; j<localsells.size();j++) {
-                Stock sellitem = (Stock)localsells.getHead().getElement();
-                if (sellitem.getName().equals(buyitem.getName())) {
+            for (int j=0; j<this.sellOrders.size();j++) {
+                System.out.println("j: "+j);
+
+                node = this.sellOrders.removeHead();
+                sale = (Stock)node.getElement();
+
+                //If Match
+                if (purchase.getName().equals(sale.getName()) && purchase.getPrice() < sale.getPrice()) {
+
                     //Create Transaction
-                    Stock transitem = new Stock(sellitem.getName(),sellitem.getQuantity()-buyitem.getQuantity(),
-                            sellitem.getPrice());
-                    this.transactions.enqueue(transitem);
+                    this.transactions.enqueue(sale);
 
-                    //Reassign head of sells to tail
-                    temp = localsells.getHead();
-                    localsells.removeHead();
-                    node.setElement(temp);
-                    localsells.addTail(node);
+                    //Modify Sales
+                    Stock newSell = new Stock(sale.getName(), sale.getQuantity() - purchase.getQuantity(), sale.getQuantity());
+
+                    if (sale.getQuantity() > 0) {
+                        node.setElement(newSell);
+                        this.sellOrders.addTail(node);
+                    }
                 }
             }
-               localbuys.enqueue(buyitem);
+            this.buyOrders.enqueue(purchase);
         }
-        //Copy local buy/sell items to global
-            this.buyOrders = localbuys;
-            this.sellOrders = localsells;
-
-	}
+    }
 
 	/*
 	 * Returns a string of the buy and sell orders. See assignment spec for more
@@ -203,11 +204,38 @@ public class Agent implements IAgent {
 	 */
 	public String printTransactions() {
 		// Implement this method
+        ArrayQueue transactions = new ArrayQueue<Stock>();
+        transactions = this.transactions;
 
+        String output = "";
 
+        String product;
+        int quantity;
+        String price;
 
-		return ""; // To prevent an error in the project
+        Stock item;
+        Node node;
 
+        int t = transactions.size();
+
+        for (int i=0;i<t;i++) {
+            item = (Stock)transactions.dequeue();
+
+            product = item.getName();
+            quantity = item.getQuantity();
+            price = Double.toString(item.getPrice());
+
+            if (price.split("\\.", 2)[1].equals("0")) {
+                price = price.split("\\.",2)[0] + ".00";
+            }
+
+            output+=product+" "+quantity+" $"+price;
+
+            if (i < t) {
+                output+= "\n";
+            }
+        }
+        return output;
 	}
 
 	public int sizeSell() {
