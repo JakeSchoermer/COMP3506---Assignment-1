@@ -119,12 +119,19 @@ public class Agent implements IAgent {
                     this.transactions.enqueue(sale);
 
                     //Modify Sales
-                    Stock newSell = new Stock(sale.getName(), sale.getQuantity() - purchase.getQuantity(), sale.getQuantity());
+                    Stock newSale = new Stock(sale.getName(), sale.getQuantity() - purchase.getQuantity(), sale.getQuantity());
 
                     if (sale.getQuantity() > 0) {
-                        node.setElement(newSell);
+                        node.setElement(newSale);
                         this.sellOrders.addTail(node);
                     }
+                    else {
+                        node.setElement(sale);
+                    }
+                }
+                else {
+                    node.setElement(sale);
+                    this.sellOrders.addTail(node);
                 }
             }
             this.buyOrders.enqueue(purchase);
