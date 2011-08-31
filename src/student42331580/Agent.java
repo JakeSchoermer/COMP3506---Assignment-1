@@ -96,42 +96,44 @@ public class Agent implements IAgent {
 
         Node node = new Node(null, null);
 
-        System.out.println(this.buyOrders.size());
-        System.out.println(this.sellOrders.size());
-        System.out.println("Test");
+
+        //Exit if either buyOrders or sellOrders are empty
+
+        if (this.buyOrders.isEmpty() || this.sellOrders.isEmpty()) {
+            return;
+        }
 
         for (int i=0; i<this.buyOrders.size(); i++) {
 
-            System.out.println("i: "+i);
-
             purchase = this.buyOrders.dequeue();
-
             for (int j=0; j<this.sellOrders.size();j++) {
-                System.out.println("j: "+j);
-
                 node = this.sellOrders.removeHead();
                 sale = (Stock)node.getElement();
 
                 //If Match
                 if (purchase.getName().equals(sale.getName()) && purchase.getPrice() < sale.getPrice()) {
 
-                    //Create Transaction
-                    this.transactions.enqueue(sale);
-
                     //Modify Sales
                     Stock newSale = new Stock(sale.getName(), sale.getQuantity() - purchase.getQuantity(), sale.getQuantity());
 
-                    if (sale.getQuantity() > 0) {
+                    if (sale.getQuantity() - purchase.getQuantity() != 0) {
                         node.setElement(newSale);
                         this.sellOrders.addTail(node);
+                        System.out.println("if");
+                        this.transactions.enqueue(newSale);
+
                     }
                     else {
-                        node.setElement(sale);
+                        System.out.println("innerelse");
+                        //Remove sale, remove purchase i.e. do not re add
+
                     }
                 }
                 else {
-                    node.setElement(sale);
-                    this.sellOrders.addTail(node);
+                    //node.setElement(sale);
+                    //this.sellOrders.addTail(node);
+                    System.out.println("else");
+                    this.transactions.enqueue(sale);
                 }
             }
             this.buyOrders.enqueue(purchase);
@@ -238,7 +240,7 @@ public class Agent implements IAgent {
 
             output+=product+" "+quantity+" $"+price;
 
-            if (i < t) {
+            if (i < t-1) {
                 output+= "\n";
             }
         }

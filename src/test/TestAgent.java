@@ -50,7 +50,6 @@ public class TestAgent {
 			fail("Exception occurred.");
 		}
     }
-
 	@Test
 	public void testExchange() {
 		try {
@@ -67,19 +66,18 @@ public class TestAgent {
 			assertEquals("Should be 0 stocks in transaction", 0,
 					a.sizeTransaction());
 
-
-//			// A buy and sell exactly match
-//			Agent b = new Agent();
-//			a.parseInput("./src/test/test_files/test3.txt"); // May need to check this path
-//			assertEquals("Should be 1 stock in buy", 1, b.sizeBuy());
-//			assertEquals("Should be 1 stock in sell", 1, b.sizeSell());
-//			assertEquals("Should be 0 stock in transaction", 0,
-//					b.sizeTransaction());
-//			b.exchange();
-//			assertEquals("Should be 0 stocks in buy", 0, b.sizeBuy());
-//			assertEquals("Should be 0 stocks in sell", 0, b.sizeSell());
-//			assertEquals("Should be 1 stock in transaction", 1,
-//					b.sizeTransaction());
+			// A buy and sell exactly match
+			Agent b = new Agent();
+			b.parseInput("./src/test/test_files/test3.txt"); // May need to check this path
+			assertEquals("Should be 1 stock in buy", 1, b.sizeBuy());
+			assertEquals("Should be 1 stock in sell", 1, b.sizeSell());
+			assertEquals("Should be 0 stock in transaction", 0,
+					b.sizeTransaction());
+			b.exchange();
+			assertEquals("Should be 0 stocks in buy", 0, b.sizeBuy());
+			assertEquals("Should be 0 stocks in sell", 0, b.sizeSell());
+			assertEquals("Should be 1 stock in transaction", 1,
+					b.sizeTransaction());
 
 		} catch (Exception e) {
 			fail("Exception occurred.");
@@ -115,4 +113,5 @@ public class TestAgent {
 			fail("Exception occurred.");
 		}
 	}
+
 }
