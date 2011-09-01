@@ -104,11 +104,6 @@ public class Agent implements IAgent {
         if (this.buyOrders.isEmpty() || this.sellOrders.isEmpty()) {
             return;
         }
-        System.out.println("=====");
-        System.out.println(buyOrders.toString());
-        System.out.println(sellOrders.toString());
-        System.out.println(transactions.toString());
-        System.out.println("=====");
 
         for (int i=0; i<this.buyOrders.size(); i++) {
 
@@ -133,7 +128,7 @@ public class Agent implements IAgent {
                     else if (purchase.getPrice() > sale.getPrice()) {
                         node.setElement(purchase);
                         this.buyOrders.enqueue(purchase);
-                        this.transactions.enqueue(newSale);
+                        this.transactions.enqueue(sale);
                     }
 
                     else {
@@ -148,7 +143,6 @@ public class Agent implements IAgent {
                 //No Match
                 else {
                     //No Transaction, sell,  buy
-                    System.out.println("No Match");
                     node.setElement(sale);
                     this.sellOrders.addTail(node);
                     node.setElement(purchase);
