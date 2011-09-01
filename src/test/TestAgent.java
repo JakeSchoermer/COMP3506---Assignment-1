@@ -114,4 +114,35 @@ public class TestAgent {
 		}
 	}
 
+    @Test
+	public void test10000Transactions() {
+		long beginTime, endTime;
+		Agent a = new Agent();
+
+		try {
+            beginTime = System.currentTimeMillis();
+		    a.parseInput("./src/test/test_files/test5.txt");
+		    endTime = System.currentTimeMillis();
+		    System.out.print("Parse 10000 records = ");
+		    System.out.println(endTime - beginTime);
+            beginTime = System.currentTimeMillis();
+            a.exchange();
+            endTime = System.currentTimeMillis();
+            System.out.print("Exchange 10000 records = ");
+            System.out.println(endTime - beginTime);
+            beginTime = System.currentTimeMillis();
+            a.printQueues();
+            endTime = System.currentTimeMillis();
+            System.out.print("Print records = ");
+            System.out.println(endTime - beginTime);
+            beginTime = System.currentTimeMillis();
+            a.printTransactions();
+            endTime = System.currentTimeMillis();
+            System.out.print("Print Transactions = ");
+            System.out.println(endTime - beginTime);
+        } catch (Exception e) {
+			fail("Exception occurred.");
+		}
+	}
+
 }
