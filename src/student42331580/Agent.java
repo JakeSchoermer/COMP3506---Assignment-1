@@ -130,12 +130,14 @@ public class Agent implements IAgent {
                         this.transactions.enqueue(newSale);
                     }
 
+                    else if (purchase.getPrice() > sale.getPrice()) {
+                        node.setElement(purchase);
+                        this.buyOrders.enqueue(purchase);
+                        this.transactions.enqueue(newSale);
+                    }
 
                     else {
                         System.out.println("else");
-                        //node.setElement(newSale);
-                        //this.sellOrders.addTail(node);
-                        //this.transactions.enqueue(newSale);
                         node.setElement(purchase);
                         this.buyOrders.enqueue(purchase);
                         node.setElement(sale);

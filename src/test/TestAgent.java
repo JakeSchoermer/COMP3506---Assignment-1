@@ -84,23 +84,23 @@ public class TestAgent {
 		}
 	}
 
-//	@Test
-//	public void testPrintTransactions() {
-//		try {
-//			// Can't exchange
-//			Agent a = new Agent();
-//			a.parseInput("./src/test/test_files/test4.txt"); // May need to check this path
-//			a.exchange();
-//			assertEquals("Should be 1 stock in buy", 1, a.sizeBuy());
-//			assertEquals("Should be 0 stock in sell", 0, a.sizeSell());
-//			assertEquals("Should be 1 stock in transaction", 1,
-//					a.sizeTransaction());
-//			assertEquals("Print transactions", "HIJK 50 $5.00", a.printTransactions());
-//
-//		} catch (Exception e) {
-//			fail("Exception occurred.");
-//		}
-//	}
+	@Test
+	public void testPrintTransactions() {
+		try {
+			// Can't exchange
+			Agent a = new Agent();
+			a.parseInput("./src/test/test_files/test4.txt"); // May need to check this path
+			a.exchange();
+			assertEquals("Should be 1 stock in buy", 1, a.sizeBuy());
+			assertEquals("Should be 0 stock in sell", 0, a.sizeSell());
+			assertEquals("Should be 1 stock in transaction", 1,
+					a.sizeTransaction());
+			assertEquals("Print transactions", "HIJK 50 $5.00", a.printTransactions());
+
+		} catch (Exception e) {
+			fail("Exception occurred.");
+		}
+	}
 
 	@Test
 	public void testPrintQueues() {

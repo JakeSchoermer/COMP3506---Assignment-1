@@ -15,10 +15,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3975383a-ced4-4bbf-bc54-a728c59eb6f0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/COMP3506 - Assignment 1.iws" afterPath="$PROJECT_DIR$/COMP3506 - Assignment 1.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student42331580/Agent.java" afterPath="$PROJECT_DIR$/src/student42331580/Agent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/TestAgent.java" afterPath="$PROJECT_DIR$/src/test/TestAgent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/test_files/test4.txt" afterPath="$PROJECT_DIR$/src/test/test_files/test4.txt" />
     </list>
     <ignored path="COMP3506 - Assignment 1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,10 +75,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Agent.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Agent.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/student42331580/Agent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="153" column="17" selection-start="5202" selection-end="5202" vertical-scroll-proportion="-15.038462">
+            <state line="139" column="51" selection-start="4676" selection-end="4676" vertical-scroll-proportion="0.5143885">
               <folding />
             </state>
           </provider>
@@ -131,11 +129,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestAgent.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TestAgent.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/TestAgent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="0" selection-start="2038" selection-end="2577" vertical-scroll-proportion="0.5920826">
-              <folding />
+            <state line="52" column="0" selection-start="1394" selection-end="2644" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1314856995000" expanded="true" signature="1394:2643" placeholder="//..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -477,7 +477,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="39" y="22" width="1641" height="1028" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956687" sideWeight="0.6703297" order="3" side_tool="false" content_ui="tabs" />
@@ -487,14 +487,14 @@
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24811558" sideWeight="0.6703297" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24811558" sideWeight="0.67142856" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32857144" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -623,13 +623,6 @@
         <state line="19" column="29" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/test_files/test4.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="19" selection-start="38" selection-end="38" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/datastructures/ArrayQueue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="13" selection-start="38" selection-end="38" vertical-scroll-proportion="0.0" />
@@ -647,16 +640,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/student42331580/Agent.java">
+    <entry file="file://$PROJECT_DIR$/src/test/test_files/test4.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="17" selection-start="5202" selection-end="5202" vertical-scroll-proportion="-15.038462">
+        <state line="1" column="19" selection-start="38" selection-end="38" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/TestAgent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="0" selection-start="2038" selection-end="2577" vertical-scroll-proportion="0.5920826">
+        <state line="52" column="0" selection-start="1394" selection-end="2644" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1314856995000" expanded="true" signature="1394:2643" placeholder="//..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/student42331580/Agent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="139" column="51" selection-start="4676" selection-end="4676" vertical-scroll-proportion="0.5143885">
           <folding />
         </state>
       </provider>
