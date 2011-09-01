@@ -4,6 +4,8 @@ import java.awt.*;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.StringTokenizer;
+
+import com.sun.corba.se.spi.orbutil.threadpool.NoSuchWorkQueueException;
 import datastructures.*;
 import student42331580.*;
 import sun.net.idn.StringPrep;
@@ -102,41 +104,55 @@ public class Agent implements IAgent {
         if (this.buyOrders.isEmpty() || this.sellOrders.isEmpty()) {
             return;
         }
+        System.out.println("=====");
+        System.out.println(buyOrders.toString());
+        System.out.println(sellOrders.toString());
+        System.out.println(transactions.toString());
+        System.out.println("=====");
 
         for (int i=0; i<this.buyOrders.size(); i++) {
 
             purchase = this.buyOrders.dequeue();
+
             for (int j=0; j<this.sellOrders.size();j++) {
                 node = this.sellOrders.removeHead();
                 sale = (Stock)node.getElement();
 
+                System.out.println(sale);
+
+                //Modify Sales
+                Stock newSale = new Stock(sale.getName(), sale.getQuantity() - purchase.getQuantity(), sale.getQuantity());
+
                 //If Match
-                if (purchase.getName().equals(sale.getName()) && purchase.getPrice() < sale.getPrice()) {
-
-                    //Modify Sales
-                    Stock newSale = new Stock(sale.getName(), sale.getQuantity() - purchase.getQuantity(), sale.getQuantity());
-
-                    if (sale.getQuantity() - purchase.getQuantity() != 0) {
-                        node.setElement(newSale);
-                        this.sellOrders.addTail(node);
-                        System.out.println("if");
+                if (purchase.getName().equals(sale.getName())) {
+                    //Exact Match
+                    if (purchase.getPrice() == sale.getPrice()) {
                         this.transactions.enqueue(newSale);
-
                     }
-                    else {
-                        System.out.println("innerelse");
-                        //Remove sale, remove purchase i.e. do not re add
 
+
+                    else {
+                        System.out.println("else");
+                        //node.setElement(newSale);
+                        //this.sellOrders.addTail(node);
+                        //this.transactions.enqueue(newSale);
+                        node.setElement(purchase);
+                        this.buyOrders.enqueue(purchase);
+                        node.setElement(sale);
+                        this.sellOrders.addTail(node);
                     }
                 }
+
+                //No Match
                 else {
-                    //node.setElement(sale);
-                    //this.sellOrders.addTail(node);
-                    System.out.println("else");
-                    this.transactions.enqueue(sale);
+                    //No Transaction, sell,  buy
+                    System.out.println("No Match");
+                    node.setElement(sale);
+                    this.sellOrders.addTail(node);
+                    node.setElement(purchase);
+                    this.buyOrders.enqueue(purchase);
                 }
             }
-            this.buyOrders.enqueue(purchase);
         }
     }
 
