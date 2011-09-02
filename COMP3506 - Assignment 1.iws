@@ -15,8 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3975383a-ced4-4bbf-bc54-a728c59eb6f0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/test_files/test5.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/TestAgent.java" afterPath="$PROJECT_DIR$/src/test/TestAgent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student42331580/Agent.java" afterPath="$PROJECT_DIR$/src/student42331580/Agent.java" />
     </list>
     <ignored path="COMP3506 - Assignment 1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,8 +82,10 @@
       <file leaf-file-name="Agent.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/student42331580/Agent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="104" selection-start="129" selection-end="129" vertical-scroll-proportion="0.16187051">
-              <folding />
+            <state line="160" column="35" selection-start="5257" selection-end="5257" vertical-scroll-proportion="0.6744604">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -184,10 +185,10 @@
         <option value="$PROJECT_DIR$/src/test/test_files/badinput.txt" />
         <option value="$PROJECT_DIR$/src/test/test_files/test4.txt" />
         <option value="$PROJECT_DIR$/src/test/test_files/test5.txt" />
-        <option value="$PROJECT_DIR$/src/student42331580/Agent.java" />
         <option value="$PROJECT_DIR$/src/test/test_files/lrgtest.txt" />
         <option value="$PROJECT_DIR$/src/test/test_files/smltest.txt" />
         <option value="$PROJECT_DIR$/src/test/TestAgent.java" />
+        <option value="$PROJECT_DIR$/src/student42331580/Agent.java" />
       </list>
     </option>
   </component>
@@ -517,7 +518,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="39" y="22" width="1641" height="1028" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956687" sideWeight="0.6703297" order="3" side_tool="false" content_ui="tabs" />
@@ -534,7 +535,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39949748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24811558" sideWeight="0.67142856" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32857144" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32857144" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -710,8 +711,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/student42331580/Agent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="104" selection-start="129" selection-end="129" vertical-scroll-proportion="0.16187051">
-          <folding />
+        <state line="160" column="35" selection-start="5257" selection-end="5257" vertical-scroll-proportion="0.6744604">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

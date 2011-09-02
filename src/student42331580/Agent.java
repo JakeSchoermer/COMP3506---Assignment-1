@@ -3,6 +3,7 @@ package student42331580;
 import java.awt.*;
 import java.io.*;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import com.sun.corba.se.spi.orbutil.threadpool.NoSuchWorkQueueException;
@@ -12,7 +13,7 @@ import sun.net.idn.StringPrep;
 
 public class Agent implements IAgent {
 
-	private ArrayQueue<Stock> buyOrders;
+	private ListQueue buyOrders;
 	private LinkedList<Stock> sellOrders;
 	private ArrayQueue<Stock> transactions;
 
@@ -22,7 +23,7 @@ public class Agent implements IAgent {
 	public Agent() {
 		// You may choose which data structures you would like to use
 
-		this.buyOrders = new ArrayQueue<Stock>();
+		this.buyOrders = new ListQueue();
 		this.sellOrders = new LinkedList<Stock>();
 		this.transactions = new ArrayQueue<Stock>();
 	}
@@ -107,7 +108,7 @@ public class Agent implements IAgent {
 
         for (int i=0; i<this.buyOrders.size(); i++) {
 
-            purchase = this.buyOrders.dequeue();
+            purchase = (Stock)this.buyOrders.dequeue();
 
             for (int j=0; j<this.sellOrders.size();j++) {
                 node = this.sellOrders.removeHead();
@@ -156,7 +157,7 @@ public class Agent implements IAgent {
 	 */
 	public String printQueues() {
 		//Copy the buyOrders and sellOrders
-        ArrayQueue localbuys = new ArrayQueue<Stock>();
+        ListQueue localbuys = new ListQueue();
         localbuys = this.buyOrders;
 
         LinkedList localsells = new LinkedList<Stock>();
