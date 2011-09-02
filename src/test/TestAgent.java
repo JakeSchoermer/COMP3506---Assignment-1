@@ -84,26 +84,26 @@ public class TestAgent {
 		}
 	}
 
-//    @Test
-//    public void testExchangeB() {
-//
-//        try {
-//
-//            Agent b = new Agent();
-//			b.parseInput("./src/test/test_files/test5.txt"); // May need to check this path
-//			assertEquals("Should be 1 stock in buy", 4, b.sizeBuy());
-//			assertEquals("Should be 1 stock in sell", 2, b.sizeSell());
-//			assertEquals("Should be 0 stock in transaction", 0,
-//					b.sizeTransaction());
-//			b.exchange();
-//			assertEquals("Should be 0 stocks in buy", 0, b.sizeBuy());
-//			assertEquals("Should be 0 stocks in sell", 0, b.sizeSell());
-//			assertEquals("Should be 1 stock in transaction", 2,
-//					b.sizeTransaction());
-//        } catch (Exception e) {
-//            fail("Exception occurred.");
-//        }
-//    }
+    @Test
+    public void testExchangeB() {
+
+        try {
+
+            Agent b = new Agent();
+			b.parseInput("./src/test/test_files/test5.txt"); // May need to check this path
+			assertEquals("Should be 1 stock in buy", 4, b.sizeBuy());
+			assertEquals("Should be 1 stock in sell", 2, b.sizeSell());
+			assertEquals("Should be 0 stock in transaction", 0,
+					b.sizeTransaction());
+			b.exchange();
+			assertEquals("Should be 0 stocks in buy", 0, b.sizeBuy());
+			assertEquals("Should be 0 stocks in sell", 0, b.sizeSell());
+			assertEquals("Should be 1 stock in transaction", 2,
+					b.sizeTransaction());
+        } catch (Exception e) {
+            fail("Exception occurred.");
+        }
+    }
 
 	@Test
 	public void testPrintTransactions() {
@@ -135,66 +135,66 @@ public class TestAgent {
 		}
 	}
 
-//    @Test
-//	public void test100Transactions() {
-//		long beginTime, endTime;
-//		Agent a = new Agent();
-//
-//		try {
-//            beginTime = System.currentTimeMillis();
-//		    a.parseInput("./src/test/test_files/smltest.txt");
-//		    endTime = System.currentTimeMillis();
-//		    System.out.print("Parse 100 records = ");
-//		    System.out.println(endTime - beginTime);
-//            beginTime = System.currentTimeMillis();
-//            a.exchange();
-//            endTime = System.currentTimeMillis();
-//            System.out.print("Exchange 100 records = ");
-//            System.out.println(endTime - beginTime);
-//            beginTime = System.currentTimeMillis();
-//            a.printQueues();
-//            endTime = System.currentTimeMillis();
-//            System.out.print("Print records = ");
-//            System.out.println(endTime - beginTime);
-//            beginTime = System.currentTimeMillis();
-//            a.printTransactions();
-//            endTime = System.currentTimeMillis();
-//            System.out.print("Print Transactions = ");
-//            System.out.println(endTime - beginTime);
-//        } catch (Exception e) {
-//			fail("Exception occurred.");
-//		}
-//	}
-//
-//    @Test
-//	public void test10000Transactions() {
-//		long beginTime, endTime;
-//		Agent a = new Agent();
-//
-//		try {
-//            beginTime = System.currentTimeMillis();
-//		    a.parseInput("./src/test/test_files/lrgtest.txt");
-//		    endTime = System.currentTimeMillis();
-//		    System.out.print("Parse 10000 records = ");
-//		    System.out.println(endTime - beginTime);
-//            beginTime = System.currentTimeMillis();
-//            a.exchange();
-//            endTime = System.currentTimeMillis();
-//            System.out.print("Exchange 10000 records = ");
-//            System.out.println(endTime - beginTime);
-//            beginTime = System.currentTimeMillis();
-//            a.printQueues();
-//            endTime = System.currentTimeMillis();
-//            System.out.print("Print records = ");
-//            System.out.println(endTime - beginTime);
-//            beginTime = System.currentTimeMillis();
-//            a.printTransactions();
-//            endTime = System.currentTimeMillis();
-//            System.out.print("Print Transactions = ");
-//            System.out.println(endTime - beginTime);
-//        } catch (Exception e) {
-//			fail("Exception occurred.");
-//		}
-//	}
+    @Test
+	public void test100Transactions() {
+		long beginTime, endTime;
+		Agent a = new Agent();
+
+		try {
+            beginTime = System.currentTimeMillis();
+		    a.parseInput("./src/test/test_files/smltest.txt");
+		    endTime = System.currentTimeMillis();
+		    System.out.print("Parse 100 records = ");
+		    System.out.println(endTime - beginTime);
+            beginTime = System.currentTimeMillis();
+            a.exchange();
+            endTime = System.currentTimeMillis();
+            System.out.print("Exchange 100 records = ");
+            System.out.println(endTime - beginTime);
+            beginTime = System.currentTimeMillis();
+            a.printQueues();
+            endTime = System.currentTimeMillis();
+            System.out.print("Print records = ");
+            System.out.println(endTime - beginTime);
+            beginTime = System.currentTimeMillis();
+            a.printTransactions();
+            endTime = System.currentTimeMillis();
+            System.out.print("Print Transactions = ");
+            System.out.println(endTime - beginTime);
+        } catch (Exception e) {
+			fail("Exception occurred.");
+		}
+	}
+
+    @Test
+	public void test10000Transactions() {
+		long beginTime, endTime;
+		Agent a = new Agent();
+
+		try {
+            beginTime = System.currentTimeMillis();
+		    a.parseInput("./src/test/test_files/lrgtest.txt");
+		    endTime = System.currentTimeMillis();
+		    System.out.print("Parse 10000 records = ");
+		    System.out.println(endTime - beginTime);
+            beginTime = System.currentTimeMillis();
+            a.exchange();
+            endTime = System.currentTimeMillis();
+            System.out.print("Exchange 10000 records = ");
+            System.out.println(endTime - beginTime);
+            beginTime = System.currentTimeMillis();
+            a.printQueues();
+            endTime = System.currentTimeMillis();
+            System.out.print("Print records = ");
+            System.out.println(endTime - beginTime);
+            beginTime = System.currentTimeMillis();
+            a.printTransactions();
+            endTime = System.currentTimeMillis();
+            System.out.print("Print Transactions = ");
+            System.out.println(endTime - beginTime);
+        } catch (Exception e) {
+			fail("Exception occurred.");
+		}
+	}
 
 }

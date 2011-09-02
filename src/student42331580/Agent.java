@@ -91,74 +91,40 @@ public class Agent implements IAgent {
         Stock purchase = new Stock();
         Stock sale = new Stock();
 
-        Node node = new Node(null, null);
-
-
-        //Exit if either buyOrders or sellOrders are empty
-
         if (this.buyOrders.isEmpty() || this.sellOrders.isEmpty()) {
             return;
         }
-
-
         int buyOrdersOrigSize = buyOrders.size();
 
         for (int i=0; i<buyOrdersOrigSize; i++) {
-
             purchase = (Stock)this.buyOrders.front();
 
-
-
             for (int j=0; j<this.sellOrders.size();j++) {
-                System.out.println("j => " + this.sellOrders.size());
                 sale = (Stock)this.sellOrders.front();
-
-                //Modify Sales
-                Stock newPurchase = new Stock(sale.getName(), sale.getQuantity() - purchase.getQuantity(), sale.getQuantity());
 
                 //If Match
                 if ((purchase.getName().equals(sale.getName())) && (purchase.getPrice() >= sale.getPrice())) {
-
-
-
-                    System.out.println("Match");
                     //Exact Match
                     if (purchase.getQuantity() == sale.getQuantity()) {
-                        System.out.println("Exact Match");
                         this.transactions.enqueue(sale);
                         this.sellOrders.dequeue();
                         this.buyOrders.dequeue();
-
-
                     }
 
                     else if (purchase.getQuantity() > sale.getQuantity()) {
-                        System.out.println(">");
                         this.transactions.enqueue(sale);
                         this.sellOrders.dequeue();
-
-
                     }
 
                     else {
-                        System.out.println("<");
-                        //node.setElement(purchase);
-                        //this.buyOrders.enqueue(purchase);
                         ((Stock) this.buyOrders.front()).setQuantity(sale.getQuantity() - purchase.getQuantity());
-
-
-
                     }
-
                     break;
                 }
 
                 //No Match
                 else {
-                    System.out.println("No Match");
-                    //this.buyOrders.dequeue();
-                    //node.setElement(purchase);
-                    //this.buyOrders.enqueue(purchase);
+                    //Do Nothing.
                 }
             }
         }
