@@ -15,9 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3975383a-ced4-4bbf-bc54-a728c59eb6f0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/test_files/test5.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/COMP3506 - Assignment 1.iws" afterPath="$PROJECT_DIR$/COMP3506 - Assignment 1.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student42331580/Agent.java" afterPath="$PROJECT_DIR$/src/student42331580/Agent.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/test_files/test5.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/TestAgent.java" afterPath="$PROJECT_DIR$/src/test/TestAgent.java" />
     </list>
     <ignored path="COMP3506 - Assignment 1.iws" />
@@ -82,21 +80,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Agent.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Agent.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/student42331580/Agent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="29" selection-start="4392" selection-end="4392" vertical-scroll-proportion="-29.038462">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test5.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/test_files/test5.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="99999" column="17" selection-start="1839124" selection-end="1839124" vertical-scroll-proportion="0.0">
+            <state line="6" column="104" selection-start="129" selection-end="129" vertical-scroll-proportion="0.16187051">
               <folding />
             </state>
           </provider>
@@ -147,13 +134,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestAgent.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TestAgent.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/TestAgent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="138" column="21" selection-start="4420" selection-end="4420" vertical-scroll-proportion="3.556701">
+            <state line="135" column="42" selection-start="4282" selection-end="4282" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lrgtest.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/test_files/lrgtest.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="1839124" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="smltest.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/test_files/smltest.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="99" column="18" selection-start="1837" selection-end="1837" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -179,8 +184,10 @@
         <option value="$PROJECT_DIR$/src/test/test_files/badinput.txt" />
         <option value="$PROJECT_DIR$/src/test/test_files/test4.txt" />
         <option value="$PROJECT_DIR$/src/test/test_files/test5.txt" />
-        <option value="$PROJECT_DIR$/src/test/TestAgent.java" />
         <option value="$PROJECT_DIR$/src/student42331580/Agent.java" />
+        <option value="$PROJECT_DIR$/src/test/test_files/lrgtest.txt" />
+        <option value="$PROJECT_DIR$/src/test/test_files/smltest.txt" />
+        <option value="$PROJECT_DIR$/src/test/TestAgent.java" />
       </list>
     </option>
   </component>
@@ -671,13 +678,6 @@
         <state line="2" column="13" selection-start="38" selection-end="38" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/test_files/test5.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99999" column="17" selection-start="1839124" selection-end="1839124" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/student42331580/InvalidInputException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="67" selection-start="168" selection-end="227" vertical-scroll-proportion="0.16014235">
@@ -685,21 +685,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/student42331580/Agent.java">
+    <entry file="file://$PROJECT_DIR$/src/test/test_files/lrgtest.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="29" selection-start="4392" selection-end="4392" vertical-scroll-proportion="-29.038462">
+        <state line="0" column="0" selection-start="0" selection-end="1839124" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/test_files/smltest.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="18" selection-start="1837" selection-end="1837" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/TestAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="42" selection-start="4282" selection-end="4282" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/TestAgent.java">
+    <entry file="file://$PROJECT_DIR$/src/student42331580/Agent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="21" selection-start="4420" selection-end="4420" vertical-scroll-proportion="3.556701">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="6" column="104" selection-start="129" selection-end="129" vertical-scroll-proportion="0.16187051">
+          <folding />
         </state>
       </provider>
     </entry>
