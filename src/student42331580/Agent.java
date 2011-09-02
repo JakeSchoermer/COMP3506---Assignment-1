@@ -1,20 +1,13 @@
 package student42331580;
 
-import java.awt.*;
 import java.io.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
-
-import com.sun.corba.se.spi.orbutil.threadpool.NoSuchWorkQueueException;
 import datastructures.*;
-import student42331580.*;
-import sun.net.idn.StringPrep;
 
 public class Agent implements IAgent {
 
 	private ListQueue buyOrders;
-	private LinkedList<Stock> sellOrders;
+	private ListQueue sellOrders;
 	private ArrayQueue<Stock> transactions;
 
 	/*
@@ -24,7 +17,7 @@ public class Agent implements IAgent {
 		// You may choose which data structures you would like to use
 
 		this.buyOrders = new ListQueue();
-		this.sellOrders = new LinkedList<Stock>();
+		this.sellOrders = new ListQueue();
 		this.transactions = new ArrayQueue<Stock>();
 	}
 
@@ -46,9 +39,11 @@ public class Agent implements IAgent {
             String line;
             int LineNumber = 1;
 
+
             while ((line = file.readLine())  != null) {
 
                 if (line != "") { //Skip Line if Empty
+
                     StringTokenizer st = new StringTokenizer(line);
 
                     if (st.countTokens() != 4) {
@@ -68,8 +63,7 @@ public class Agent implements IAgent {
                         this.buyOrders.enqueue(stock);
                     }
                     else if (transactionType.equals("sell")) {
-                        node.setElement(stock);
-                        this.sellOrders.addHead(node);
+                        this.sellOrders.enqueue(stock);
                     }
                     else {
                         ret = -1;
@@ -106,46 +100,65 @@ public class Agent implements IAgent {
             return;
         }
 
-        for (int i=0; i<this.buyOrders.size(); i++) {
 
-            purchase = (Stock)this.buyOrders.dequeue();
+        int buyOrdersOrigSize = buyOrders.size();
+
+        for (int i=0; i<buyOrdersOrigSize; i++) {
+
+            purchase = (Stock)this.buyOrders.front();
+
+
 
             for (int j=0; j<this.sellOrders.size();j++) {
-                node = this.sellOrders.removeHead();
-                sale = (Stock)node.getElement();
-
-                System.out.println(sale);
+                System.out.println("j => " + this.sellOrders.size());
+                sale = (Stock)this.sellOrders.front();
 
                 //Modify Sales
-                Stock newSale = new Stock(sale.getName(), sale.getQuantity() - purchase.getQuantity(), sale.getQuantity());
+                Stock newPurchase = new Stock(sale.getName(), sale.getQuantity() - purchase.getQuantity(), sale.getQuantity());
 
                 //If Match
-                if (purchase.getName().equals(sale.getName())) {
+                if ((purchase.getName().equals(sale.getName())) && (purchase.getPrice() >= sale.getPrice())) {
+
+
+
+                    System.out.println("Match");
                     //Exact Match
-                    if (purchase.getPrice() == sale.getPrice()) {
-                        this.transactions.enqueue(newSale);
+                    if (purchase.getQuantity() == sale.getQuantity()) {
+                        System.out.println("Exact Match");
+                        this.transactions.enqueue(sale);
+                        this.sellOrders.dequeue();
+                        this.buyOrders.dequeue();
+
+
                     }
 
-                    else if (purchase.getPrice() > sale.getPrice()) {
-                        node.setElement(purchase);
-                        this.buyOrders.enqueue(purchase);
+                    else if (purchase.getQuantity() > sale.getQuantity()) {
+                        System.out.println(">");
                         this.transactions.enqueue(sale);
+                        this.sellOrders.dequeue();
+
+
                     }
+
                     else {
-                        node.setElement(purchase);
-                        this.buyOrders.enqueue(purchase);
-                        node.setElement(sale);
-                        this.sellOrders.addTail(node);
+                        System.out.println("<");
+                        //node.setElement(purchase);
+                        //this.buyOrders.enqueue(purchase);
+                        ((Stock) this.buyOrders.front()).setQuantity(sale.getQuantity() - purchase.getQuantity());
+
+
+
                     }
+
+                    break;
                 }
 
                 //No Match
                 else {
-                    //No Transaction, sell,  buy
-                    node.setElement(sale);
-                    this.sellOrders.addTail(node);
-                    node.setElement(purchase);
-                    this.buyOrders.enqueue(purchase);
+                    System.out.println("No Match");
+                    //this.buyOrders.dequeue();
+                    //node.setElement(purchase);
+                    //this.buyOrders.enqueue(purchase);
                 }
             }
         }
@@ -160,7 +173,7 @@ public class Agent implements IAgent {
         ListQueue localbuys = new ListQueue();
         localbuys = this.buyOrders;
 
-        LinkedList localsells = new LinkedList<Stock>();
+        ListQueue localsells = new ListQueue();
         localsells = this.sellOrders;
 
         String output = "";
@@ -196,9 +209,8 @@ public class Agent implements IAgent {
 
         for (int i=0;i<s;i++) {
 
-            node = localsells.getHead();
-            item = (Stock)node.getElement();
-            localsells.removeHead();
+            item = (Stock)localsells.dequeue();
+
 
             product = item.getName();
             quantity = item.getQuantity();
@@ -269,5 +281,4 @@ public class Agent implements IAgent {
 	public int sizeTransaction() {
 		return this.transactions.size();
 	}
-
 }
